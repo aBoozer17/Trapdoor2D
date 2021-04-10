@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     public static int numLives = 3;
+    public static int levelNum = 1;
+    public SwitchLevel sw = new SwitchLevel();
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class MenuScript : MonoBehaviour
 
     public void playGame()
     {
-        SceneManager.LoadScene("level1");
+        levelNum = 1;
+        sw.setlevel(levelNum);
+        string path = sw.changelevel();
+        SceneManager.LoadScene(path);
     }
 }
